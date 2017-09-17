@@ -1,6 +1,7 @@
 %!TEX program = xelatex
 \documentclass{ctexart}
 \usepackage{amsmath}
+\usepackage[table]{xcolor}
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{float}
@@ -15,7 +16,7 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-移动互联网时代实现了照片拍摄市场与摄影师之间的实时互通，本文应用非线性拟合的手段，结合图像分析，对不同位置的任务的定价问题进行了分析。研究了原有定价方案与供需关系在新环境下的进一步优化,于已有数据进行聚簇分析，化简了繁冗的现实模型，
+移动互联网时代实现了照片拍摄市场与摄影师之间的实时互通，本文应用非线性拟合的手段，结合图像分析，对不同位置的任务的定价问题进行了分析。研究了原有定价方案与供需关系的进一步优化,于已有数据进行聚簇分析，化简了繁冗的现实模型，
 
 针对问题一，从附录一获取资料之后，首先用散点图画出了任务的位置分布情况，为了讨论定价规律，我们选位置的经纬作为考察变量，利用典型相关分析求位置、价格和完成度的相关系数。发现他们的弱相关关系后，我们就利用集簇的思想，把图划分为几个区域，，并利用聚簇分析网格法分别讨论个区域的定价情况。最后，建立任务完成度函数T = f(K)作为指标，得了任务完成率与区域关系的的数学模型，并综合附录二的数据，利用曲线算法拟合得到了任务完成度模型，并将其利用于评价任务未完成的原因。
 
@@ -28,6 +29,7 @@
 [关键词] 聚簇分析\ 曲线拟合\ 供需关系\ 贪心算法\ 
 \end{abstract}
 \newpage
+\subsection{符号分析}
 \section{问题重述}
 “拍照赚钱”是移动互联网下的一种自助式服务模式。用户下载APP，注册成为APP的会员，然后从APP上领取需要拍照的任务（比如上超市去检查某种商品的上架情况），赚取APP对任务所标定的酬金。这种基于移动互联网的自助式劳务众包平台，为企业提供各种商业检查和信息搜集，相比传统的市场调查方式可以大大节省调查成本，而且有效地保证了调查数据真实性，缩短了调查的周期。因此APP成为该平台运行的核心，而APP中的任务定价又是其核心要素。如果定价不合理，有的任务就会无人问津，而导致商品检查的失败。
 
@@ -105,10 +107,10 @@ $\rho_{u_1,v_1}={a_{1}^{T}\sum_{12} b_1}$取得最大值。通过计算我们得
 
 \begin{figure}[htbp] 
 \centering
-\includegraphics[width=0.9\textwidth]{成功率随区域变化} 
+\includegraphics[width=0.6\textwidth]{成功率随区域变化} 
 \caption{成功率随区域变化}
 \end{figure}
-
+\newpage
 经过聚簇分析，我们得出以下结论：
 
 1.高完成率地区与经济发达地区相吻合，说明经济发展程度与任务完成程度呈正相关。
@@ -128,12 +130,12 @@ $\rho_{u_1,v_1}={a_{1}^{T}\sum_{12} b_1}$取得最大值。通过计算我们得
 首先我们统计了原有的定价与完成率的关系，计算出不停价格区间的任务完成率，这些任务与价格之间大致呈线性关系发现我们通过现象拟合的思路，用线性回归的方法确定了任务总数与总价的关系，并用拟合的方法求出了二者之间的数学关系式$d_2=g(d_1)=\frac{1000}{15}d_1$,然后又利用散点图做出了完成度低的地区分布
 \begin{figure}[htbp]  
 \centering
-\includegraphics[width=0.5\textwidth]{完成率} 
+\includegraphics[width=0.3\textwidth]{完成率} 
 \caption{定价与完成率的关系}
 \end{figure}
 \begin{figure}[htbp] 
 \centering
-\includegraphics[width=0.5\textwidth]{完成度低} 
+\includegraphics[width=0.6\textwidth]{完成度低} 
 \caption{完成度低地区分布}
 \end{figure}
 \begin{figure}[htbp] 
@@ -146,7 +148,7 @@ $\rho_{u_1,v_1}={a_{1}^{T}\sum_{12} b_1}$取得最大值。通过计算我们得
 \includegraphics[width=0.6\textwidth]{任务均价} 
 \caption{任务总数与均价的关系}
 \end{figure}
-
+\newpage
 \subsubsection{数据处理方法和过程}
 \begin{figure}[htbp]  
 \centering
